@@ -35,12 +35,16 @@ std::string * createAPoemDynamically() {
 
 
 int main(){
-  std::cout << "Task D\n";
-  std::string * p;
-  p = createAPoemDynamically();
-   
-  std::cout << *p << std::endl;
-  delete p;
 
+  
+  while(true){
+    std::string * p;
+    p = createAPoemDynamically();
+   
+  //std::cout << *p << std::endl;
+    delete p;
+  }
+
+  
   return 0;
 }
