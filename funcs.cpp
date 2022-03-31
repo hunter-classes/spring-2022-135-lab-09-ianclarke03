@@ -96,18 +96,14 @@ std::string * createAPoemDynamically() {
 
 
 
-
-
-
-
-// allocate memory and initialize
 Coord3D* createCoord3D(double x, double y, double z){
-  Coord3D newcoord = {x, y, z};
-  Coord3D* ptrcoord;
-  return ptrcoord;
+  Coord3D* newcoord;
+  newcoord = new Coord3D;
+  *newcoord = Coord3D{x, y, z};
+  
 }
 
-// free memory
+
 void deleteCoord3D(Coord3D *p){
   delete p;
 }
