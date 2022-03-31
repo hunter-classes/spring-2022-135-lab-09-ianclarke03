@@ -8,12 +8,12 @@
 TEST_CASE("Length") {
   Coord3D pointP = {10, 20, 30};
   CHECK(((length(&pointP) - 37.4166) < 0.01));
-  Coord3D point1 = {100, 0, 0};
-  CHECK(((length(&point1) - 100) < 0.01));
-  Coord3D point2 = {0, 100, 0};
-  CHECK(((length(&point2) - 100) < 0.01));
-  Coord3D point3 = {0, 0, 100};
-  CHECK(((length(&point3) - 100) < 0.01));
+  Coord3D point1 = {25, 0, 0};
+  CHECK(((length(&point1) - 25) < 0.01));
+  Coord3D point2 = {0, 10, 0};
+  CHECK(((length(&point2) - 10) < 0.01));
+  Coord3D point3 = {0, 0, 50};
+  CHECK(((length(&point3) - 50) < 0.01));
   Coord3D point4 = {3, 4, 0};
   CHECK(((length(&point4) - 5) < 0.01));
   }
@@ -23,13 +23,13 @@ TEST_CASE("Farther") {
   Coord3D pointQ = {-20, 21, -22};
   CHECK(fartherFromOrigin(&pointP, &pointQ) == &pointP);
   pointP = {100, 0, 0};
-  pointQ = {-20, 0, 0};
+  pointQ = {0, 10, 0};
   CHECK(fartherFromOrigin(&pointP, &pointQ) == &pointP);
   pointP = {0, 125, 0};
-  pointQ = {-20, 0, 0};
+  pointQ = {-20, 1, 2};
   CHECK(fartherFromOrigin(&pointP, &pointQ) == &pointP);
-  pointP = {0, 0, 250};
-  pointQ = {-20, 0, 0};
+  pointP = {100, 0, 250};
+  pointQ = {-200, 0, 0};
   CHECK(fartherFromOrigin(&pointP, &pointQ) == &pointP);
   }
 
