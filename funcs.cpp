@@ -100,13 +100,45 @@ std::string * createAPoemDynamically() {
 
 
 
+// allocate memory and initialize
+Coord3D* createCoord3D(double x, double y, double z){
+  Coord3D newcoord = {x, y, z};
+  Coord3D* ptrcoord;
+  return ptrcoord;
+}
+
+// free memory
+void deleteCoord3D(Coord3D *p){
+  delete p;
+}
+
+
+
+
+//Hints: 
+//in createCoord3D, call new operator on Coord3D, then set up x, y, and z for the dynamically allocated Coord3D object. Afterwards, return pointer that points to the object.
+
+//In deleteCoord3D, delete memory pointed by p, then set p to be nullptr.
+
+
+
+
+
+
+
 
 int main() {
 
+
+
+  
   std::cout << "Task A\n";
   Coord3D pointP = {10, 20, 30};
   std::cout << length(&pointP) << std::endl; // would print 37.4166
   std::cout << "\n";
+
+
+
 
   
 
@@ -130,6 +162,9 @@ int main() {
 
 
 
+
+  
+
   std::cout << "Task C\n";
   Coord3D pos = {0, 0, 100.0};
   Coord3D vel = {1, -5, 0.2};
@@ -141,6 +176,9 @@ int main() {
 
 
 
+
+  
+
   std::cout << "Task D\n";
   std::string * p;
   p = createAPoemDynamically();
@@ -151,13 +189,34 @@ int main() {
   std::cout << *p << std::endl;
   delete p;
 
+
+
+
+
+  std::cout << "Task E\n";
+  double x, y, z;
+  std::cout << "Enter position: ";
+  std::cin >> x >> y >> z;
+  Coord3D *ppos = createCoord3D(x,y,z);
+    
+  std::cout << "Enter velocity: ";
+  std::cin >> x >> y >> z;
+  Coord3D *pvel = createCoord3D(x,y,z);
+
+  move(ppos, pvel, 10.0);
+
+  std::cout << "Coordinates after 10 seconds: " << (*ppos).x << " " << (*ppos).y << " " << (*ppos).z << std::endl;
+
+  deleteCoord3D(ppos); // release memory
+  deleteCoord3D(pvel);
+
+
+
+
+
+
+  
   
   return 0;
 }
-
-
-
-
-
-    
 
