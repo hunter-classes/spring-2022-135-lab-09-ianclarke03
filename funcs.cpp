@@ -11,6 +11,11 @@ public:
 };
 
 
+
+
+
+
+
 double length(Coord3D *p){
   double value;
   double xsq = pow (((*p).x) , 2.0);
@@ -22,6 +27,11 @@ double length(Coord3D *p){
 
   return value;
 }
+
+
+
+
+
 
 
 
@@ -38,11 +48,53 @@ Coord3D * fartherFromOrigin(Coord3D *p1, Coord3D *p2){
 
 
 
+
+
+
+
+
+
 void move(Coord3D *ppos, Coord3D *pvel, double dt){
   (*ppos).x = (*ppos).x + ((*pvel).x * dt);
   (*ppos).y = (*ppos).y + ((*pvel).y * dt);
   (*ppos).z = (*ppos).z + ((*pvel).z * dt);
 }
+
+
+
+
+
+
+
+
+
+
+std::string * createAPoemDynamically() {
+    std::string *ppoem;      // declare a pointer to string
+                        // (it will store the address)
+
+    ppoem = new std::string; // <-- DYNAMICALLY ALLOCATE MEMORY
+                        //     for a poem string and
+                        //     store its address in the pointer
+
+    *ppoem =            // put a poem there
+      "   Those             \n"
+      "   who can write     \n"
+      "   have a            \n"
+      "   lot to            \n"
+      "   learn from those  \n"
+      "   bright            \n"
+      "   enough            \n"
+      "   not to.           \n"; 
+
+    return ppoem;       // return the address where the poem is
+}
+
+
+//Hints: remember to call delete operator on p in appropriate location. Afterwards, set p to be nullptr.
+
+
+
 
 
 
@@ -90,9 +142,22 @@ int main() {
 
 
   std::cout << "Task D\n";
+  std::string * p;
+  p = createAPoemDynamically();
+    // The memory at the address p still stores the poem we
+    // put in it during the function call. Neat!
 
+    // At any later moment, you can print it out:
+  std::cout << *p << std::endl;
+  delete p;
 
   
   return 0;
 }
+
+
+
+
+
+    
 
